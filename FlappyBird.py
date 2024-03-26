@@ -81,7 +81,7 @@ def main():
 	bird_x = 50#kept constant
 	bird_y = 500
 	bird_y_change = 0 #Initailly no change
-	bird_gravity = 2#gravity 
+	bird_gravity = 2.5#gravity 
 	bird_base_pos = 1950
 	
 	#initialized pipe parameters
@@ -110,13 +110,13 @@ def main():
 			#game starts by ckicking on the window or by pressing the space key
 			elif event.type == pygame.MOUSEBUTTONDOWN or event.type  == pygame.KEYDOWN and (event.key == pygame.K_SPACE):
 				
-				bird_y_change = -30#bird moves up
+				bird_y_change = -35#bird moves up
 				#plays sound
 				woosh_sound()
 
 		bird_y_change += bird_gravity
 		#Gravity at each time the bird rises up
-		
+	
 		#Updated the birds position
 		bird_y += bird_y_change
 		
@@ -177,4 +177,5 @@ def main():
 if __name__ =='__main__':
 	main()
 	
- 
+
+	
