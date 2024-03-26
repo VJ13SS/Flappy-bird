@@ -110,10 +110,13 @@ def main():
 			#game starts by ckicking on the window or by pressing the space key
 			elif event.type == pygame.MOUSEBUTTONDOWN or event.type  == pygame.KEYDOWN and (event.key == pygame.K_SPACE):
 				
-				bird_y_change = -35#bird moves up
+				bird_y_change = -30#bird moves up
 				#plays sound
 				woosh_sound()
-
+		if bird_y_change < 0:
+			bird_gravity = 1.5
+		else:
+			bird_gravity = 2.5
 		bird_y_change += bird_gravity
 		#Gravity at each time the bird rises up
 	
@@ -151,9 +154,10 @@ def main():
 		#checks collision
 		if obstacle_collision(bird_x, bird_y, pipe_x, pipe_2_height, pipe_gap,pipe_width):
 			
+			hit_sound()
 			#Re-initialization for end screen
 			bird_y = bird_base_pos
-			hit_sound()
+			
 			bird_y = 500
 			bird_y_change = 0
 			bird_gravity = 0
